@@ -9,6 +9,7 @@ func TestResponseNotIndent(t *testing.T) {
 	writer := responseWriter{
 		nil,
 		false,
+		nil,
 	}
 
 	got, err := writer.EncodeJson(map[string]bool{"test": true})

@@ -64,6 +64,7 @@ func adapterFunc(handler HandlerFunc) http.HandlerFunc {
 		writer := &responseWriter{
 			origWriter,
 			false,
+			nil,
 		}
 
 		// call the wrapped handler

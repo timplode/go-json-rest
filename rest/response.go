@@ -57,6 +57,7 @@ func NotFound(w ResponseWriter, r *Request) {
 type responseWriter struct {
 	http.ResponseWriter
 	wroteHeader bool
+	output      []byte
 }
 
 func (w *responseWriter) WriteHeader(code int) {
@@ -85,6 +86,7 @@ func (w *responseWriter) WriteJson(v interface{}) error {
 	if err != nil {
 		return err
 	}
+	w.output = append(w.output, b...)
 	return nil
 }
 
