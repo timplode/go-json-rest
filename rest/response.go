@@ -118,3 +118,7 @@ func (w *responseWriter) Hijack() (net.Conn, *bufio.ReadWriter, error) {
 	hijacker := w.ResponseWriter.(http.Hijacker)
 	return hijacker.Hijack()
 }
+
+func (w *responseWriter) Output() []byte {
+	return w.output
+}
